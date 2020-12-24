@@ -8,12 +8,12 @@ int main(){
 	if(wiringPiSetupGpio() == -1)
 		return -1;
 	Sensor gyro;
-	printf("Init gyro");
+	printf("Init gyro\n");
 
 	float xyz[3];
 	
-	int step[2] = {15,17};
-	int dir[2] = {14,27};
+	int dir[2] = {15,17};
+	int step[2] = {14,27};
 
 	for(int i = 0;i<2;i++){
 		pinMode(step[i],OUTPUT);
