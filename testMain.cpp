@@ -30,9 +30,9 @@ int main(){
 				digitalWrite(dir[i], 0);
 			}
 		}
-		xyz[0]=gyro.getAngleX();
-		xyz[1]=gyro.getAngleY();
-		xyz[2]=gyro.getAngleZ();
+		xyz[0]=gyro.getGyroX();
+		xyz[1]=gyro.getGyroY();
+		xyz[2]=gyro.getGyroZ();
 
 		cout<<"("<<xyz[0]<<", "<<xyz[1]<<", "<<xyz[2]<<")"<<endl;
 		
