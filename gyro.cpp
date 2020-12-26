@@ -23,11 +23,10 @@ struct Coord{
         return out;
     }
 
-    Coord operator+=(const Coord& c){
+    void operator+=(const Coord& c){
         x = x+c.x;
         y = y+c.y;
         z = z+c.z;
-        return this;
     }
 
     Coord operator/(int num){
@@ -67,7 +66,8 @@ int main(){
 		v[ind++]=Coord(gyro.getAngleX(),gyro.getAngleY(),gyro.getAngleZ());
         ind%=10;
 		printf("\033c");
-        cout<<getAvg(v)<<endl;
+        auto c = getAvg(v);
+        cout<<c.x<<endl<<c.y<<endl<<c.z<<endl;
 
 		delay(1);
 			
