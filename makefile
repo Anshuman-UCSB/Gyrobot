@@ -8,7 +8,7 @@ printGyro:
 	g++ printGyroAngle.cpp libSensor.cpp -o printGyro -l wiringPi
 
 gyro: FORCE
-	g++ gyro.cpp libSensor.cpp -o gyro -l wiringPi
+	g++ gyro.cpp libSensor.cpp -o gyro -l wiringPi -pthread
 
 .PHONY: FORCE
 
