@@ -23,8 +23,15 @@ struct Coord{
         return out;
     }
 
+    Coord operator+=(const Coord& c){
+        x = x+c.x;
+        y = y+c.y;
+        z = z+c.z;
+        return this;
+    }
+
     Coord operator/(int num){
-        Coord c(this);
+        Coord c(x,y,z);
         c.x/=num;
         c.y/=num;
         c.z/=num;
@@ -45,7 +52,7 @@ Coord getAvg(vector<Coord>& v){
     for(auto& c: v){
         t+=c;
     }
-    return c/10;
+    return t/10;
 }
 
 int main(){
