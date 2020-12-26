@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <wiringPi.h>
-#include <future>
+#include <thread>
 #include "libSensor.h"
 using namespace std;
 
@@ -38,7 +38,6 @@ struct Coord{
         return c;
     }
 
-    
 };
 
 ostream& operator<<(ostream& os, const Coord& c)
@@ -60,17 +59,21 @@ class Gyro{
     Sensor gyro;
     vector<Coord> v;
     int ind, wait, buffer;
+    Thread updater;
+    bool done;
     Gyro(){
         //Assume wiringPiSetupGpio already done
+        done = false;
         buffer = 10;
         v = vector<Coord>(buffer);
         ind = 0;    
         wait  = 1;
-        async(update);
+        updater = Thread(update);
+        updater.detach();
     }
 
     void update(){
-        while(true){
+        while(!done){
             v[ind++] = getGyroInstant();
             ind%=buffer;
             delay(wait);
@@ -85,6 +88,9 @@ class Gyro{
         return Coord(gyro.getAngleX(),gyro.getAngleY(),gyro.getAngleZ());
     }
     
+    void kill(){
+        done = true;
+    }
 };
 
 int main(){
