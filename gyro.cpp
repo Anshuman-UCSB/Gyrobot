@@ -56,6 +56,7 @@ Coord getAvg(vector<Coord>& v){
 }
 
 class Gyro{
+    public:
     Sensor gyro;
     vector<Coord> v;
     int ind, wait, buffer;
