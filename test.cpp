@@ -4,8 +4,8 @@ using namespace std;
 
 int main(){
 	wiringPiSetupGpio();
-	int step[2] = {15,2};
-	int dir[2] = {14,17};
+	int step[2] = {14,27};
+	int dir[2] = {15,17};
 	for(int i = 0;i<2;i++){
 		pinMode(step[i], OUTPUT);
 		pinMode(dir[i], OUTPUT);
