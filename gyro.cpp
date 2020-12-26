@@ -67,7 +67,7 @@ int main(){
         ind%=10;
 		printf("\033c");
         auto c = getAvg(v);
-        cout<<c.x<<endl<<c.y<<endl<<c.z<<endl;
+        cout<<c.x<<"\n"<<c.y<<"\n"<<c.z<<endl;
 
 		delay(1);
 			
