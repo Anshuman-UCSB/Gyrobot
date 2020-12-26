@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <wiringPi.h>
+#include <future>
 #include "libSensor.h"
 using namespace std;
 
@@ -54,24 +55,58 @@ Coord getAvg(vector<Coord>& v){
     return t/10;
 }
 
-int main(){
-	if(wiringPiSetupGpio() == -1)
-		return -1;
-	Sensor gyro;
-	printf("Init gyro\n");
-    vector<Coord> v(10);
-    int ind = 0;
-	
-	while(1){
-		v[ind++]=Coord(gyro.getAngleX(),gyro.getAngleY(),gyro.getAngleZ());
-        ind%=10;
-		printf("\033c");
-        auto c = getAvg(v);
-        cout<<int(c.x)<<"\n"<<int(c.y)<<"\n"<<int(c.z)<<endl;
+class Gyro{
+    Sensor gyro;
+    vector<Coord> v;
+    int ind, wait, buffer;
+    Gyro(){
+        //Assume wiringPiSetupGpio already done
+        buffer = 10;
+        v = vector<Coord>(buffer);
+        ind = 0;    
+        wait  = 1;
+        async(update);
+    }
 
-		delay(1);
+    void update(){
+        while(true){
+            v[ind++] = getGyroInstant();
+            ind%=buffer;
+            delay(wait);
+        }
+    }
+
+    Coord getGyro(){
+        return getAvg(v);
+    }
+
+    Coord getGyroInstant(){
+        return Coord(gyro.getAngleX(),gyro.getAngleY(),gyro.getAngleZ());
+    }
+    
+};
+
+int main(){
+    Gyro g;
+    cout<<g.getGyro()<<endl;
+    
+	// if(wiringPiSetupGpio() == -1)
+	// 	return -1;
+	// Sensor gyro;
+	// printf("Init gyro\n");
+    // vector<Coord> v(10);
+    // int ind = 0;
+	
+	// while(1){
+	// 	v[ind++]=Coord(gyro.getAngleX(),gyro.getAngleY(),gyro.getAngleZ());
+    //     ind%=10;
+	// 	printf("\033c");
+    //     auto c = getAvg(v);
+    //     cout<<int(c.x)<<"\n"<<int(c.y)<<"\n"<<int(c.z)<<endl;
+
+	// 	delay(1);
 			
-	}
+	// }
 
 
 }
