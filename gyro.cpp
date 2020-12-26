@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include <wiringPi.h>
 #include "libSensor.h"
 using namespace std;
@@ -7,6 +8,13 @@ struct Coord{
     float x, y, z;
     Coord():x(0), y(0), z(0){}
     Coord(float a, float b, float c):x(a), y(b), z(c){}
+    Coord(const Coord& c){
+        x = c.x;
+        y = c.y;
+        z = c.z;
+    }
+
+
     Coord operator+(const Coord& c){
         Coord out;
         out.x = x+c.x;
