@@ -59,7 +59,6 @@ class Gyro{
     Sensor gyro;
     vector<Coord> v;
     int ind, wait, buffer;
-    thread updater;
     bool done;
     Gyro(){
         //Assume wiringPiSetupGpio already done
@@ -68,8 +67,6 @@ class Gyro{
         v = vector<Coord>(buffer);
         ind = 0;    
         wait  = 1;
-        updater = thread(update);
-        updater.detach();
     }
 
     void update(){
@@ -93,8 +90,20 @@ class Gyro{
     }
 };
 
+void updateGyro(Gyro& g){
+    while(true){
+        g.v[g.ind++] = g.getGyroInstant();
+        g.ind%=g.buffer;
+        delay(g.wait);
+    }
+}
+
 int main(){
     Gyro g;
+    thread updater;
+    updater = thread(updateGyro, ref(g));
+    updater.detach();
+
     while(true){
 		printf("\033c");
         cout<<g.getGyro()<<endl;
