@@ -36,10 +36,11 @@ class Driver{
 			else
 				for(int i = 0;i<2;i++)
 					digitalWrite(dir[i],0);
-			for(int i = 0;i<2;i++)
-				digitalWrite(step[i], !digitalRead(step[i]));
+			if(speed !=0)
+				for(int i = 0;i<2;i++)
+					digitalWrite(step[i], !digitalRead(step[i]));
 			// delay((1-abs(speed))*(maxDelay-minDelay));
-			delay(speed==0?99999:(11-speed/10));
+			delay(11-speed/10);
 		}
 	}
 
