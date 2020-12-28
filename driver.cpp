@@ -30,7 +30,6 @@ class Driver{
 
 	void asyncDriver(){
 		while(!done){
-			cout<<speed<<endl;
 			if(speed<0)
 				for(int i = 0;i<2;i++)
 					digitalWrite(dir[i],0);
@@ -39,7 +38,7 @@ class Driver{
 					digitalWrite(dir[i],0);
 			for(int i = 0;i<2;i++)
 				digitalWrite(step[i], !digitalRead(step[i]));
-			delay(abs(speed)*(maxDelay-minDelay));
+			delay((1-abs(speed))*(maxDelay-minDelay));
 		}
 	}
 
