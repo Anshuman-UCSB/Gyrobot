@@ -8,12 +8,16 @@ class Driver{
 	public:
 	int step[2], dir[2];
 	double speed;
-	int minDelay(0), maxDelay(1000);
+	int minDelay, maxDelay;
 	bool done;
 	Driver(int stepA, int stepB, int dirA, int dirB){
+		minDelay = 0;
+		maxDelay = 1000;
 		done = false;
-		step = {stepA, stepB};
-		dir = {dirA, dirB};
+		step[0] = stepA;
+		step[1] = stepB;
+		dir[0] = dirA;
+		dir[1] = dirB;
 		for(int i = 0;i<2;i++){
 			pinMode(step[i],OUTPUT);
 			pinMode(dir[i],OUTPUT);
