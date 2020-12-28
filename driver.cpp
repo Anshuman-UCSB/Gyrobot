@@ -43,14 +43,6 @@ class Driver{
 int main(){
 	if(wiringPiSetupGpio() == -1)
 		return -1;
-	Sensor gyro;
-	printf("Init gyro\n");
-
-	float xyz[3];
-	
-	int dir[2] = {15,17};
-	int step[2] = {14,27};
-
 	for(int i = 0;i<2;i++){
 		pinMode(step[i],OUTPUT);
 		pinMode(dir[i],OUTPUT);
@@ -66,17 +58,7 @@ int main(){
 				digitalWrite(dir[i], 0);
 			}
 		}
-		xyz[0]=gyro.getGyroX();
-		xyz[1]=gyro.getGyroY();
-		xyz[2]=gyro.getGyroZ();
-
-		cout<<"("<<xyz[0]<<", "<<xyz[1]<<", "<<xyz[2]<<")"<<endl;
-		
-
 		delay(1);
-			
 	}
-
-
 }
 
