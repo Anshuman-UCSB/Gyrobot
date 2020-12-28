@@ -10,7 +10,8 @@ printGyro: FORCE
 gyro: FORCE
 	g++ gyro.cpp libSensor.cpp -o gyro -l wiringPi -pthread
 
-
+driver: FORCE
+	g++ driver.cpp -o driver -l wiringPi -pthread
 
 .PHONY: FORCE
 
