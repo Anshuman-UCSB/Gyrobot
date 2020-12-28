@@ -60,10 +60,10 @@ class Gyro{
     vector<Coord> v;
     int ind, wait, buffer;
     bool done;
-    Gyro(){
+    Gyro(int buff = 10){
         //Assume wiringPiSetupGpio already done
         done = false;
-        buffer = 100;
+        buffer = buff;
         v = vector<Coord>(buffer);
         ind = 0;    
         wait  = 1;
