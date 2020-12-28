@@ -49,18 +49,3 @@ class Driver{
 	}
 };
 
-int main(){
-	if(wiringPiSetupGpio() == -1)
-		return -1;
-	Driver d(14,27,15,17);
-	d.speed = .1;
-	cout<<"Reached"<<endl;
-	while(1){
-		string temp;
-		cout<<"Enter a speed: ";
-		cin>>temp;
-		d.speed = stoi(temp);
-		cout<<"New speed: "<<d.speed<<endl;
-	}
-}
-

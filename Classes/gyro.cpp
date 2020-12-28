@@ -67,6 +67,8 @@ class Gyro{
         v = vector<Coord>(buffer);
         ind = 0;    
         wait  = 1;
+        thread t(&Gyro::update, this);
+        t.detach();
     }
 
     void update(){
@@ -90,44 +92,12 @@ class Gyro{
     }
 };
 
-void updateGyro(Gyro& g){
-    while(true){
-        g.v[g.ind++] = g.getGyroInstant();
-        g.ind%=g.buffer;
-        delay(g.wait);
-    }
-}
 
 int main(){
     Gyro g;
-    thread updater;
-    updater = thread(updateGyro, ref(g));
-    updater.detach();
-
     while(true){
 		printf("\033c");
         cout<<g.getGyro()<<endl;
     }
-
-    g.kill();
-	// if(wiringPiSetupGpio() == -1)
-	// 	return -1;
-	// Sensor gyro;
-	// printf("Init gyro\n");
-    // vector<Coord> v(10);
-    // int ind = 0;
-	
-	// while(1){
-	// 	v[ind++]=Coord(gyro.getAngleX(),gyro.getAngleY(),gyro.getAngleZ());
-    //     ind%=10;
-	// 	printf("\033c");
-    //     auto c = getAvg(v);
-    //     cout<<int(c.x)<<"\n"<<int(c.y)<<"\n"<<int(c.z)<<endl;
-
-	// 	delay(1);
-			
-	// }
-
-
 }
 

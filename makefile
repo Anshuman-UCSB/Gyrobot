@@ -18,6 +18,10 @@ driver: FORCE
 	g++ Testing/driver.cpp -o Binaries/driver -l wiringPi -pthread
 	./Binaries/driver
 
+classTest: FORCE
+	g++ Testing/classTest.cpp -o Binaries/classTest -l wiringPi -pthread
+	./Binaries/classTest
+
 clean: FORCE
 	rm Binaries/*
 	echo Cleaned!
