@@ -12,8 +12,8 @@ class Driver{
 	bool done;
 	Driver(int stepA, int stepB, int dirA, int dirB){
 		speed = 0;
-		minDelay = 0;
-		maxDelay = 1000;
+		minDelay = 1;
+		maxDelay = 100;
 		done = false;
 		step[0] = stepA;
 		step[1] = stepB;
@@ -39,7 +39,7 @@ class Driver{
 			for(int i = 0;i<2;i++)
 				digitalWrite(step[i], !digitalRead(step[i]));
 			// delay((1-abs(speed))*(maxDelay-minDelay));
-			delay(speed);
+			delay(speed==0?99999:100/speed);
 		}
 	}
 
