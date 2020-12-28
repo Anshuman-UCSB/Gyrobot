@@ -52,7 +52,10 @@ int main(){
 	Driver d(14,27,15,17);
 	d.speed = .1;
 	while(1){
-		
+		string temp;
+		cout<<"Enter a speed: ";
+		cin>>temp;
+		d.speed = stoi(temp);
 	}
 }
 
