@@ -63,7 +63,7 @@ class Gyro{
     Gyro(){
         //Assume wiringPiSetupGpio already done
         done = false;
-        buffer = 10;
+        buffer = 100;
         v = vector<Coord>(buffer);
         ind = 0;    
         wait  = 1;
