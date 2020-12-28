@@ -93,11 +93,3 @@ class Gyro{
 };
 
 
-int main(){
-    Gyro g;
-    while(true){
-		printf("\033c");
-        cout<<g.getGyro()<<endl;
-    }
-}
-
