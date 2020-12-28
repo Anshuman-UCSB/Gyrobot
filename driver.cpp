@@ -11,6 +11,7 @@ class Driver{
 	int minDelay, maxDelay;
 	bool done;
 	Driver(int stepA, int stepB, int dirA, int dirB){
+		speed = 0;
 		minDelay = 0;
 		maxDelay = 1000;
 		done = false;
@@ -29,6 +30,7 @@ class Driver{
 
 	void asyncDriver(){
 		while(!done){
+			cout<<speed<<endl;
 			if(speed<0)
 				for(int i = 0;i<2;i++)
 					digitalWrite(dir[i],0);
@@ -51,6 +53,7 @@ int main(){
 		return -1;
 	Driver d(14,27,15,17);
 	d.speed = .1;
+	cout<<"Reached"<<endl;
 	while(1){
 		string temp;
 		cout<<"Enter a speed: ";
