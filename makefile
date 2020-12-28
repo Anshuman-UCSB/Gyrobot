@@ -1,17 +1,17 @@
 Delta: FORCE
-	g++ libSensorDelta.cpp libSensor.cpp -o test -l wiringPi
+	g++ Testing/libSensorDelta.cpp Classes/libSensor.cpp -o Binaries/test -l wiringPi
 
 testMain: FORCE
-	g++ testMain.cpp libSensor.cpp -o testMain -l wiringPi
+	g++ Testing/testMain.cpp Classes/libSensor.cpp -o Binaries/testMain -l wiringPi
 
 printGyro: FORCE
-	g++ printGyroAngle.cpp libSensor.cpp -o printGyro -l wiringPi
+	g++ Testing/printGyroAngle.cpp Classes/libSensor.cpp -o Binaries/printGyro -l wiringPi
 
 gyro: FORCE
-	g++ gyro.cpp libSensor.cpp -o gyro -l wiringPi -pthread
+	g++ Testing/gyro.cpp Classes/libSensor.cpp -o Binaries/gyro -l wiringPi -pthread
 
 driver: FORCE
-	g++ driver.cpp -o driver -l wiringPi -pthread
+	g++ Testing/driver.cpp -o Binaries/driver -l wiringPi -pthread
 
 .PHONY: FORCE
 

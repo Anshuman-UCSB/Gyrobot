@@ -2,7 +2,7 @@
 #include <wiringPi.h>
 #include <stdio.h>
 #include <cmath>
-#include "libSensor.h"
+#include "../Classes/libSensor.h"
 
 using namespace std;
 

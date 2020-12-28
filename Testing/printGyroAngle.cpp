@@ -1,6 +1,6 @@
 #include <iostream>
 #include <wiringPi.h>
-#include "libSensor.h"
+#include "../Classes/libSensor.h"
 
 using namespace std;
 
