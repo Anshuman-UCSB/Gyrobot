@@ -59,6 +59,7 @@ int main(){
 		cout<<"Enter a speed: ";
 		cin>>temp;
 		d.speed = stoi(temp);
+		cout<<"New speed: "<<d.speed<<endl;
 	}
 }
 
