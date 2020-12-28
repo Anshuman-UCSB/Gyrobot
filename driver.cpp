@@ -39,7 +39,7 @@ class Driver{
 			for(int i = 0;i<2;i++)
 				digitalWrite(step[i], !digitalRead(step[i]));
 			// delay((1-abs(speed))*(maxDelay-minDelay));
-			delay(speed==0?99999:100/speed);
+			delay(speed==0?99999:11-speed/10);
 		}
 	}
 
