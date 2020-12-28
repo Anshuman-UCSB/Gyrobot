@@ -35,7 +35,8 @@ class Driver{
 			else
 				for(int i = 0;i<2;i++)
 					digitalWrite(dir[i],0);
-			digitalWrite(step[i], !digitalRead(step[i]));
+			for(int i = 0;i<2;i++)
+				digitalWrite(step[i], !digitalRead(step[i]));
 			delay(abs(speed)*(maxDelay-minDelay));
 		}
 	}
@@ -43,7 +44,7 @@ class Driver{
 	void kill(){
 		done = true;
 	}
-}
+};
 
 int main(){
 	if(wiringPiSetupGpio() == -1)
