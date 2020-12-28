@@ -17,7 +17,11 @@ gyro: FORCE
 driver: FORCE
 	g++ Testing/driver.cpp -o Binaries/driver -l wiringPi -pthread
 	./Binaries/driver
-	
+
+clean: FORCE
+	rm Binaries/*
+	echo Cleaned!
+
 .PHONY: FORCE
 
 FORCE:
