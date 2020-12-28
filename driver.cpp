@@ -35,7 +35,7 @@ class Driver{
 					digitalWrite(dir[i],0);
 			else
 				for(int i = 0;i<2;i++)
-					digitalWrite(dir[i],0);
+					digitalWrite(dir[i],1);
 			if(speed !=0)
 				for(int i = 0;i<2;i++)
 					digitalWrite(step[i], !digitalRead(step[i]));
