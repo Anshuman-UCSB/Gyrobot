@@ -19,7 +19,7 @@ driver: FORCE
 	./Binaries/driver
 
 classTest: FORCE
-	g++ Testing/classTest.cpp -o Binaries/classTest -l wiringPi -pthread
+	g++ Testing/classTest.cpp Classes/libSensor.cpp -o Binaries/classTest -l wiringPi -pthread
 	./Binaries/classTest
 
 clean: FORCE
