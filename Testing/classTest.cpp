@@ -7,7 +7,7 @@ using namespace std;
 int main(){
 	if(wiringPiSetupGpio() == -1)
 		return -1;
-    Gyro g(1);
+    Gyro g(100);
 	Driver d(14,27,15,17);
 	d.speed = .1;
 	int crd[3], old[3];
