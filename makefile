@@ -22,6 +22,10 @@ classTest: FORCE
 	g++ Testing/classTest.cpp Classes/libSensor.cpp -o Binaries/classTest -l wiringPi -pthread
 	./Binaries/classTest
 
+gyro1: FORCE
+	g++ Testing/gyro1.cpp Classes/libSensor.cpp -o Binaries/gyro1 -l wiringPi -pthread
+	./Binaries/gyro1
+
 clean: FORCE
 	rm Binaries/*
 	echo Cleaned!
