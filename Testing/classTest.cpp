@@ -10,8 +10,8 @@ int main(){
     Gyro g;
 	Driver d(14,27,15,17);
 	d.speed = 0;
-	int crd[3], old[3]
-	for(int i =0 ;;i++){
+	int crd[3], old[3];
+	for(int i=0;;i++){
 		auto t = g.getGyro();
 		old[3] = {crd[0], crd[1], crd[2]};
 		crd[3] = {t.x, t.y, t.z};
