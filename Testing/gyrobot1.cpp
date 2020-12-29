@@ -11,7 +11,8 @@ int main(){
 	Driver d(14,27,15,17);
 	d.speed = 0;
 	for(;;){
-		auto t = g.getGyro().x;
+		float x = g.getGyro().x;
+		d.speed = (-x*40);
         cout<<t<<endl;
 		delay(10);
 	}
