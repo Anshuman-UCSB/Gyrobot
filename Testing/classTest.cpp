@@ -9,7 +9,7 @@ int main(){
 		return -1;
     Gyro g;
 	Driver d(14,27,15,17);
-	d.speed = 0;
+	d.speed = .4;
 	int crd[3], old[3];
 	for(int i=0;;i++){
 		auto t = g.getGyro();
