@@ -23,7 +23,7 @@ classTest: FORCE
 	./Binaries/classTest
 
 gyro1: FORCE
-	g++ Testing/gyro1.cpp Classes/libSensor.cpp -o Binaries/gyro1 -l wiringPi -pthread
+	g++ Testing/gyrobot1.cpp Classes/libSensor.cpp -o Binaries/gyro1 -l wiringPi -pthread
 	./Binaries/gyro1
 
 clean: FORCE
