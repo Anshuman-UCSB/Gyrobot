@@ -12,7 +12,9 @@ int main(){
 	d.speed = 0;
 	while(1){
         printf("\033c");
-        cout<<g.getGyro()<<endl;
+        cout<<int(g.getGyro()[0])<<endl;
+        cout<<int(g.getGyro()[1])<<endl;
+        cout<<int(g.getGyro()[2])<<endl;
 	}
 }
 
