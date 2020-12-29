@@ -13,8 +13,12 @@ int main(){
 	int crd[3], old[3];
 	for(int i=0;;i++){
 		auto t = g.getGyro();
-		old[3] = {crd[0], crd[1], crd[2]};
-		crd[3] = {t.x, t.y, t.z};
+		old[0] = crd[0];
+		old[1] = crd[1];
+		old[2] = crd[2];
+		crd[0] = t.x;
+		crd[1] = t.y;
+		crd[2] = t.z;
 		if(old[0]!=crd[0] || old[1]!=crd[1] || old[2]!=crd[2])
 			cout<<i<<": ("<<crd[0]<<", "<<crd[1]<<", "<<crd[2]<<")"<<endl;
 		delay(10);
