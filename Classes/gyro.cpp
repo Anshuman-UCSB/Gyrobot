@@ -51,7 +51,7 @@ Coord getAvg(vector<Coord>& v){
     for(auto& c: v){
         t+=c;
     }
-    return t/10;
+    return t/1;
 }
 
 class Gyro{
