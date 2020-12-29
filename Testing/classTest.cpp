@@ -16,9 +16,9 @@ int main(){
 		old[0] = crd[0];
 		old[1] = crd[1];
 		old[2] = crd[2];
-		crd[0] = t.x;
-		crd[1] = t.y;
-		crd[2] = t.z;
+		crd[0] = t.x/2;
+		crd[1] = t.y/2;
+		crd[2] = t.z/2;
 		if(old[0]!=crd[0] || old[1]!=crd[1] || old[2]!=crd[2])
 			cout<<i<<": ("<<crd[0]<<", "<<crd[1]<<", "<<crd[2]<<")"<<endl;
 		delay(10);
