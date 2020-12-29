@@ -75,6 +75,7 @@ class Gyro{
         while(!done){
             v[ind++] = getGyroInstant();
             ind%=buffer;
+            this_thread::sleep_for(std::chrono::milliseconds(wait));
             delay(wait);
         }
     }

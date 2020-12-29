@@ -21,7 +21,7 @@ int main(){
 		crd[2] = t.z;
 		if(old[0]!=crd[0] || old[1]!=crd[1] || old[2]!=crd[2])
 			cout<<i<<": ("<<crd[0]<<", "<<crd[1]<<", "<<crd[2]<<")"<<endl;
-		delay(10);
+		this_thread::sleep_for(chrono::milliseconds(10));
 	}
 }
 
