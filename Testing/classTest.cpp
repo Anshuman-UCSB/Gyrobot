@@ -12,8 +12,8 @@ int main(){
 	d.speed = 0;
 	while(1){
         printf("\033c");
-        cout<<int(g.getGyro().x)<<endl;
-        cout<<int(g.getGyro().y)<<endl;
+        cout<<int(g.getGyro().x)<<"\n";
+        cout<<int(g.getGyro().y)<<"\n";
         cout<<int(g.getGyro().z)<<endl;
 	}
 }
