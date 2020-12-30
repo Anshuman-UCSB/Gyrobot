@@ -44,7 +44,7 @@ class Driver{
 					digitalWrite(step[i], !digitalRead(step[i]));
 			// delay((1-abs(speed))*(maxDelay-minDelay));
 			cout<<"Delay is "<<delay<<endl;
-			if(delay)<100)
+			if(delay<100)
 				this_thread::sleep_for(chrono::milliseconds(delay)));
 
 			// delay(1000);
