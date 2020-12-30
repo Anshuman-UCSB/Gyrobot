@@ -13,7 +13,7 @@ int main(){
 	for(;;){
 		float x = g.getGyro().x;
 		d.speed = x;
-		cout<<x<<endl;
+		cout<<"\r\r"<<x<<endl;
 		delay(10);
 	}
 }

@@ -29,6 +29,7 @@ class Driver{
 	}
 
 	void asyncDriver(){
+		cout<<"Async driver started."<<endl;
 		while(!done){
 			if(speed<0)
 				for(int i = 0;i<2;i++)
