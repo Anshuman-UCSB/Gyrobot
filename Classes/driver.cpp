@@ -45,7 +45,7 @@ class Driver{
 			// delay((1-abs(speed))*(maxDelay-minDelay));
 			cout<<"Delay is "<<delay<<endl;
 			if(delay<100)
-				this_thread::sleep_for(chrono::milliseconds(delay));
+				this_thread::sleep_for(chrono::milliseconds(abs(delay)));
 
 			// delay(1000);
 		}
