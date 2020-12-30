@@ -12,8 +12,7 @@ int main(){
 	d.speed = 0;
 	for(;;){
 		float x = g.getGyro().x;
-		d.speed = abs(x)>4?(x>0?50:-50):0;
-		cout<<x<<endl;
+		d.speed = x;
 		delay(10);
 	}
 }
