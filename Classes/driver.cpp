@@ -40,7 +40,7 @@ class Driver{
 				for(int i = 0;i<2;i++)
 					digitalWrite(step[i], !digitalRead(step[i]));
 			// delay((1-abs(speed))*(maxDelay-minDelay));
-			this_thread::sleep_for(chrono::milliseconds(int(70/speed)));
+			this_thread::sleep_for(chrono::milliseconds(int(70./speed)));
 
 			// delay(1000);
 		}
