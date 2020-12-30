@@ -30,19 +30,22 @@ class Driver{
 
 	void asyncDriver(){
 		cout<<"Async driver started."<<endl;
+		int delay;
 		while(!done){
+			delay = int(70./speed);
 			if(speed<0)
 				for(int i = 0;i<2;i++)
 					digitalWrite(dir[i],0);
 			else
 				for(int i = 0;i<2;i++)
 					digitalWrite(dir[i],1);
-			if(speed !=0)
+			if(delay<100)
 				for(int i = 0;i<2;i++)
 					digitalWrite(step[i], !digitalRead(step[i]));
 			// delay((1-abs(speed))*(maxDelay-minDelay));
-			cout<<"Delay is "<<int(70./speed)<<endl;
-			this_thread::sleep_for(chrono::milliseconds(int(70./speed)));
+			cout<<"Delay is "<<delay<<endl;
+			if(delay)<100)
+				this_thread::sleep_for(chrono::milliseconds(delay)));
 
 			// delay(1000);
 		}
