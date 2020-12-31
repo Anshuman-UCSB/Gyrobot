@@ -11,6 +11,8 @@ class Driver{
 	int minDelay, maxDelay;
 	bool done;
 	Driver(int stepA, int stepB, int dirA, int dirB){
+		digitalWrite(23,1);
+		digitalWrite(22,1);
 		speed = 0;
 		minDelay = 1;
 		maxDelay = 100;
