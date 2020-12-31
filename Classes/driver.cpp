@@ -12,8 +12,8 @@ class Driver{
 	bool done;
 	Driver(int stepA, int stepB, int dirA, int dirB){
 		// microstep
-		// digitalWrite(23,1);
-		// digitalWrite(22,1);
+		digitalWrite(23,1);
+		digitalWrite(22,1);
 		speed = 0;
 		minDelay = 1;
 		maxDelay = 100;
