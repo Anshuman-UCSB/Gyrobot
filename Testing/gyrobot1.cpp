@@ -11,7 +11,7 @@ int main(){
 	Driver d(14,27,15,17);
 	d.delay = 0;
 	for(;;){
-		float x = g.getGyro();
+		float x = g.getGyro().x;
 		d.delay = abs(x)>.7 ? max(50./abs(x),1.):0;
 		d.delay *= abs(x)/x;
 		cout<<"\r\r"<<x;
