@@ -10,9 +10,8 @@ int main(){
     Gyro g(50);
 	Driver d(14,27,15,17);
 	d.delay = 0;
-	float start = g.getGyro().x;
 	for(;;){
-		float x = g.getGyro().x-start;
+		float x = g.getGyro();
 		d.delay = abs(x)>.7 ? max(50./abs(x),1.):0;
 		d.delay *= abs(x)/x;
 		cout<<"\r\r"<<x;
