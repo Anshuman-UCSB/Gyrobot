@@ -7,16 +7,14 @@ using namespace std;
 class Driver{
 	public:
 	int step[2], dir[2];
-	double speed;
-	int minDelay, maxDelay;
+	int delay;
 	bool done;
 	Driver(int stepA, int stepB, int dirA, int dirB){
 		// microstep
 		digitalWrite(23,1);
 		digitalWrite(22,1);
 		speed = 0;
-		minDelay = 1;
-		maxDelay = 100;
+		delay = 9999;
 		done = false;
 		step[0] = stepA;
 		step[1] = stepB;
@@ -33,7 +31,6 @@ class Driver{
 
 	void asyncDriver(){
 		cout<<"Async driver started."<<endl;
-		int delay;
 		while(!done){
 			delay = int(70./speed);
 			if(speed<0)
@@ -42,15 +39,15 @@ class Driver{
 			else
 				for(int i = 0;i<2;i++)
 					digitalWrite(dir[i],1);
-			if(delay<100)
-				for(int i = 0;i<2;i++)
+			if(abs(delay) < 100)
+				for(int i = 0;i<2;i++){
 					digitalWrite(step[i], !digitalRead(step[i]));
-			// delay((1-abs(speed))*(maxDelay-minDelay));
+					this_thread::sleep_for(chrono::milliseconds(1));
+					digitalWrite(step[i], !digitalRead(step[i]));
+				}
 			cout<<"Delay is "<<delay<<endl;
-			if(delay<100)
+			if(abs(delay)<100)
 				this_thread::sleep_for(chrono::milliseconds(abs(delay)));
-
-			// delay(1000);
 		}
 	}
 
