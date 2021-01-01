@@ -37,14 +37,14 @@ class Driver{
 			else
 				for(int i = 0;i<2;i++)
 					digitalWrite(dir[i],1);
-			if(abs(delay) < 50)
+			if(abs(delay) < 50 && delay !=0)
 				for(int i = 0;i<2;i++){
 					digitalWrite(step[i], !digitalRead(step[i]));
 					this_thread::sleep_for(chrono::milliseconds(1));
 					digitalWrite(step[i], !digitalRead(step[i]));
 				}
 			cout<<"Delay is "<<delay<<endl;
-			if(abs(delay)<100)
+			if(abs(delay)<50)
 				this_thread::sleep_for(chrono::milliseconds(abs(delay)));
 		}
 	}
