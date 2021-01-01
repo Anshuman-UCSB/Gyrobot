@@ -37,7 +37,7 @@ class Driver{
 			else
 				for(int i = 0;i<2;i++)
 					digitalWrite(dir[i],1);
-			if(abs(delay) < 90)
+			if(abs(delay) < 50)
 				for(int i = 0;i<2;i++){
 					digitalWrite(step[i], !digitalRead(step[i]));
 					this_thread::sleep_for(chrono::milliseconds(1));
