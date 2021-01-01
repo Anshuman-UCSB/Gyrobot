@@ -9,10 +9,10 @@ int main(){
 		return -1;
     Gyro g(50);
 	Driver d(14,27,15,17);
-	d.speed = 0;
+	d.delay = 0;
 	for(;;){
 		float x = g.getGyro().x;
-		d.delay = (abs(x)/x)(100-2*abs(x));
+		d.delay = (abs(x)/x)*(100-2*abs(x));
 		cout<<"\r\r"<<x;
 		delay(10);
 	}

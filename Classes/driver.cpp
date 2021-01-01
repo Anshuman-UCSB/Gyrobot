@@ -13,7 +13,6 @@ class Driver{
 		// microstep
 		digitalWrite(23,1);
 		digitalWrite(22,1);
-		speed = 0;
 		delay = 9999;
 		done = false;
 		step[0] = stepA;
@@ -32,14 +31,13 @@ class Driver{
 	void asyncDriver(){
 		cout<<"Async driver started."<<endl;
 		while(!done){
-			delay = int(70./speed);
-			if(speed<0)
+			if(delay<0)
 				for(int i = 0;i<2;i++)
 					digitalWrite(dir[i],0);
 			else
 				for(int i = 0;i<2;i++)
 					digitalWrite(dir[i],1);
-			if(abs(delay) < 100)
+			if(abs(delay) < 90)
 				for(int i = 0;i<2;i++){
 					digitalWrite(step[i], !digitalRead(step[i]));
 					this_thread::sleep_for(chrono::milliseconds(1));
@@ -47,7 +45,7 @@ class Driver{
 				}
 			cout<<"Delay is "<<delay<<endl;
 			if(abs(delay)<100)
-				this_thread::sleep_for(chrono::milliseconds(abs(delay)));
+				this_thread::sleep_for(chrono::milliseconds(max(abs(delay),1)));
 		}
 	}
 
