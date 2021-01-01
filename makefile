@@ -26,6 +26,10 @@ gyro1: FORCE
 	g++ Testing/gyrobot1.cpp Classes/libSensor.cpp -o Binaries/gyro1 -l wiringPi -pthread
 	./Binaries/gyro1
 
+requests: FORCE
+	g++ -I ./Dependencies/ Testing/requests.cpp -o Binaries/requests
+	./Binaries/requests
+
 clean: FORCE
 	rm Binaries/*
 	echo Cleaned!

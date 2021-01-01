@@ -12,7 +12,7 @@ int main(){
 	d.delay = 0;
 	for(;;){
 		float x = g.getGyro().x;
-		d.delay = abs(x)>.7 ? max(50./abs(x),1.):0;
+		d.delay = max(50./abs(x),1.);
 		d.delay *= abs(x)/x;
 		cout<<"\r\r"<<x;
 		delay(10);
