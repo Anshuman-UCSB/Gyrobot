@@ -20,6 +20,6 @@ left = LED(14)
 right = LED(27)
 setDir(left, right, 1)
 
-for i in range(100):
+for i in range(10000):
     step(left, right)
     sleep(.001)
