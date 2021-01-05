@@ -6,6 +6,10 @@ LED(22).on()
 def step(left, right):
     left.toggle()
     right.toggle()
+    sleep(0.001)
+    left.toggle()
+    right.toggle()
+
 
 def setDir(left, right, val): #if val > 0, forwards
     if(val>0):
@@ -22,4 +26,4 @@ setDir(left, right, 1)
 
 for i in range(10000):
     step(left, right)
-    # sleep(.0001)
+    sleep(.0001)
