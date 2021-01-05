@@ -27,7 +27,7 @@ gyro1: FORCE
 	./Binaries/gyro1
 
 requests: FORCE
-	g++ -I ./Dependencies/ Testing/requests.cpp -o Binaries/requests
+	g++ -I ./Dependencies/ Testing/requests.cpp -o Binaries/requests -L cpr/lib
 	./Binaries/requests
 
 clean: FORCE

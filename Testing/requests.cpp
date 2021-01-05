@@ -3,5 +3,6 @@
 using namespace std;
 
 int main(){
-    cout<<"hello world"<<endl;
+    auto response = cpr::Get(cpr::Url{"https://httpbin.org/get"});
+    // cout<<response.text<<endl;
 }
