@@ -10,9 +10,9 @@ def step(left, right):
 def setDir(left, right, val): #if val > 0, forwards
     if(val>0):
         left.on();
-        right.on();
+        right.off();
     else:
-        left.off();
+        left.on();
         right.off();
 
 
@@ -22,4 +22,4 @@ setDir(left, right, 1)
 
 for i in range(10000):
     step(left, right)
-    sleep(.001)
+    # sleep(.0001)
