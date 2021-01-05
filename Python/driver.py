@@ -22,4 +22,4 @@ setDir(left, right, 1)
 
 for i in range(100):
     step(left, right)
-    sleep(1)
+    sleep(.001)
