@@ -24,7 +24,7 @@ int main(){
     for(;;){
         regH = wiringPiI2CReadReg8(fd,65);
         regL = wiringPiI2CReadReg8(fd,66);
-        printf("Temperature: %04X\n", reg);
+        printf("Temperature: %02X%02X\n", regH, regL);
         delay(100);
         
     }
