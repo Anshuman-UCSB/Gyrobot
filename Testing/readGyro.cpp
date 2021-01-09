@@ -12,7 +12,7 @@ int main(){
         exit(-1);
     }
     reg = wiringPiI2CReadReg8(fd,0x1A);
-    printf("%06X", reg);
+    printf("%06X\n", reg);
     
     wiringPiI2CWriteReg8(fd,107, 0b10000000);                   // PWR_MGMT_1[7=DEVICE_RESET]
     delay(100);
@@ -28,5 +28,5 @@ int main(){
     if(reg>65535){
         reg=reg-65535;
     }
-    printf("Gyro X: %04X", reg);
+    printf("Gyro X: %04X\n", reg);
 }
