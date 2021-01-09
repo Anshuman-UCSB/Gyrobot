@@ -3,7 +3,7 @@
 using namespace std;
 
 int main(){
-    int fd = wiringPiI2Csetup(0x68);
+    int fd = wiringPiI2CSetup(0x68);
     if(fd==-1){
         cout<<"Error: Cannot open device."<<endl;
         exit(-1);
