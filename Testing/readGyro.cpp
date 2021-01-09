@@ -8,7 +8,7 @@ int main(){
         cout<<"Error: Cannot open device."<<endl;
         exit(-1);
     }
-    int reg = wiringPiI2CRead(0x1A);
+    int reg = wiringPiI2CReadReg8(fd,0x1A);
     printf("%06X", reg);
     cout<<hex<<reg<<endl;
 }
