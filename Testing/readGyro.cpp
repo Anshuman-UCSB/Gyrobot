@@ -1,5 +1,6 @@
 #include <iostream>
 #include <wiringPiI2C.h>
+#include <wiringPi.h>
 using namespace std;
 
 int main(){
