@@ -19,14 +19,17 @@ int main(){
     wiringPiI2CWriteReg8(fd,104, 0b00000111);                   // RESETTING DATAPATH
     delay(100);
 
-
     reg = wiringPiI2CReadReg8(fd,26);
     wiringPiI2CWriteReg8(fd,26, (reg&0b11111000)|0b00000110);   //Set low pass filter to 6
-    regH = wiringPiI2CReadReg8(fd,67);
-    regL = wiringPiI2CReadReg8(fd,68);
-    reg = (regH<<8) + regL;
-    if(reg>65535){
-        reg=reg-65535;
+
+    for(;;){
+        regH = wiringPiI2CReadReg8(fd,67);
+        regL = wiringPiI2CReadReg8(fd,68);
+        reg = (regH<<8) + regL;
+        if(reg>65535){
+            reg=reg-65535;
+        }
+        printf("Gyro X: %04X\n", reg);
+        delay(100);
     }
-    printf("Gyro X: %04X\n", reg);
 }
