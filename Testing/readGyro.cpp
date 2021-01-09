@@ -21,7 +21,13 @@ int main(){
 
     reg = wiringPiI2CReadReg8(fd,26);
     wiringPiI2CWriteReg8(fd,26, (reg&0b11111000)|0b00000110);   //Set low pass filter to 6
-
+    for(;;){
+        regH = wiringPiI2CReadReg8(fd,65);
+        regL = wiringPiI2CReadReg8(fd,66);
+        printf("Temperature: %04X\n", reg);
+        delay(100);
+        
+    }
     for(;;){
         regH = wiringPiI2CReadReg8(fd,67);
         regL = wiringPiI2CReadReg8(fd,68);
