@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <wiringPiI2C.h>
+#include <wiringPi.h>
 #include "mpu6050.h"
 
 double gyroXcali, gyroYcali, gyroZcali;
