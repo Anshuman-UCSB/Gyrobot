@@ -46,7 +46,7 @@ void gyroCalib() {
 }
 
 
-void main () {
+int main () {
   int del = 50;
 
   fd = wiringPiI2CSetup(0x68);
