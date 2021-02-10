@@ -14,19 +14,19 @@ def step(delay, leftPin=27, rightPin = 14, leftDirPin = 17):
 
     while True:
         start = time()
-        while time()-start<delay:
+        while time()-start<delay[0]:
             pass
         left.toggle()
         right.toggle()
 
-delay = 1
+delay = [1]
 p = Thread(target = step, args=[delay])
 p.daemon = True
 p.start()
 
 sleep(2)
 print("changing speed")
-delay = .001
+delay[0] = .001
 sleep(5)
 print("DONE")
 exit(1)
