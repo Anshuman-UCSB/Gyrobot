@@ -26,15 +26,12 @@ p.start()
 
 sleep(2)
 print("changing speed")
-delay[0] = .001
-sleep(5)
-print("DONE")
-exit(1)
+
 
 while True:
     data= sensor.get_gyro_data()
     print('\033c')
-    left.toggle()
-    right.toggle()
-    print(data['y'])
-    sleep(.1)
+    dy = data['y']
+    print(dy)
+
+    delay[0] = dy
