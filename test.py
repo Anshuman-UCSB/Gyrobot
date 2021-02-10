@@ -1,7 +1,7 @@
 from mpu6050 import mpu6050
 from time import sleep, time
 from gpiozero import LED
-import threading
+from threading import Thread
 
 sensor = mpu6050(0x68)
 
