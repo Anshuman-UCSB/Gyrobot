@@ -1,5 +1,5 @@
 from mpu6050 import mpu6050
-from time import sleep
+from time import sleep, time
 from gpiozero import LED
 
 sensor = mpu6050(0x68)
@@ -9,9 +9,10 @@ right= LED(14)
 leftDir = LED(17)
 leftDir.on()
 
-def step():
+def step(delay):
     while True:
-        # sleep(0.01)
+        start = time()
+        print(start)
         left.toggle()
         right.toggle()
 
