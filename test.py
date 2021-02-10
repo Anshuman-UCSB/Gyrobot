@@ -30,6 +30,7 @@ delay[0] = .001
 sleep(5)
 print("DONE")
 exit(1)
+
 while True:
     data= sensor.get_gyro_data()
     print('\033c')
