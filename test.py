@@ -20,7 +20,7 @@ def step(delay, leftPin=27, rightPin = 14, leftDirPin = 17):
         right.toggle()
 
 delay = 1
-p = Thread(target = step, args=(1))
+p = Thread(target = step, args=[delay])
 p.daemon = True
 p.start()
 
