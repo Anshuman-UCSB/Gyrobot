@@ -6,5 +6,5 @@ sensor = mpu6050(0x68)
 while True:
     data= sensor.get_gyro_data()
     print('\033c')
-    print(data)
+    print(data['y'])
     sleep(.1)
