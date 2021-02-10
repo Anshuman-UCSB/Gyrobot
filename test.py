@@ -12,7 +12,8 @@ leftDir.on()
 def step(delay):
     while True:
         start = time()
-        print(start)
+        while time()-start<delay:
+            pass
         left.toggle()
         right.toggle()
 
