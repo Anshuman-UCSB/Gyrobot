@@ -6,6 +6,12 @@ sensor = mpu6050(0x68)
 
 left = LED(27)
 right= LED(14)
+leftDir = LED(17)
+leftDir.on()
+
+def step():
+    left.toggle()
+    right.toggle()
 
 while True:
     data= sensor.get_gyro_data()
