@@ -17,7 +17,7 @@ def step(delay):
         left.toggle()
         right.toggle()
 
-step(1)
+step(.001)
 
 while True:
     data= sensor.get_gyro_data()
