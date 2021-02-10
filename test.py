@@ -10,8 +10,12 @@ leftDir = LED(17)
 leftDir.on()
 
 def step():
-    left.toggle()
-    right.toggle()
+    while True:
+        sleep(0.01)
+        left.toggle()
+        right.toggle()
+
+step()
 
 while True:
     data= sensor.get_gyro_data()
