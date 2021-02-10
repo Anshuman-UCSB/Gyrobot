@@ -27,11 +27,11 @@ p.start()
 sleep(2)
 print("changing speed")
 
-
+mx = 0
 while True:
     data= sensor.get_gyro_data()
-    print('\033c')
     dy = data['y']
-    print(dy)
+    print('\033c'+dy)
+    mx = max(mx, abs(dy))
 
-    delay[0] = dy
+    delay[0] = mx-abs(dy)
