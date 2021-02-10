@@ -24,14 +24,14 @@ p = Thread(target = step, args=[delay])
 p.daemon = True
 p.start()
 
-sleep(2)
-print("changing speed")
+# sleep(2)
+# print("changing speed")
 
 mx = 0
 while True:
     data= sensor.get_gyro_data()
     dy = data['y']
-    print('\033c'+dy)
+    print('\033c',dy)
     mx = max(mx, abs(dy))
 
     delay[0] = mx-abs(dy)
