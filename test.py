@@ -11,7 +11,7 @@ leftDir.on()
 
 def step():
     while True:
-        sleep(0.01)
+        # sleep(0.01)
         left.toggle()
         right.toggle()
 
