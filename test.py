@@ -56,7 +56,7 @@ while True:
     rollingFilter.append(dy)
     if(len(rollingFilter)>=100):
         rollingFilter.pop(0)
-    dyAvg = avg(rollingFilter)
+    dyAvg = avg(rollingFilter[-10:])-avg(rollingFilter)
     print('\033c',dyAvg)
     changeDir(dyAvg)
     if abs(dyAvg)>4:
