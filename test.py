@@ -54,5 +54,5 @@ while True:
     changeDir(dy)
     if abs(dy)<0.1:
         dy = .1
-    delay[0] = 1./abs(dy)
+    delay[0] = .1/abs(dy)
     # sleep(1)
