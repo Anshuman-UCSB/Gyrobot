@@ -59,7 +59,9 @@ while True:
     dyAvg = avg(rollingFilter)
     print('\033c',dyAvg)
     changeDir(dyAvg)
-    if abs(dyAvg)<4:
-        dyAvg = 0.01
-    delay[0] = .01/abs(dyAvg)
+    if abs(dyAvg)>4:
+        delay[0] = .01/abs(dyAvg)
+        sleep(.02)
+    else:
+        delay[0] = 999
     # sleep(1)
