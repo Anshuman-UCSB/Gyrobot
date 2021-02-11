@@ -34,4 +34,4 @@ while True:
     print('\033c',dy)
     mx = max(mx, abs(dy))
 
-    delay[0] = mx-abs(dy)
+    delay[0] = .001
