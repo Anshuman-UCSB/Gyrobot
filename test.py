@@ -19,6 +19,18 @@ def step(delay, leftPin=27, rightPin = 14, leftDirPin = 17):
         left.toggle()
         right.toggle()
 
+def changeDir(input, leftDirPin = 17,rightDirPin = 17, lForwards = 1, rForwards=0):
+    "if input is >0, forwards else backwards"
+    leftDir = LED(leftDirPin)
+    rightDir = LED(rightDirPin)
+    if(input>0):
+        leftDir.value = lForwards
+        rightDir.value = rForwards
+    else:
+        leftDir.value = (0 if lForwards == 1 else 1)
+        rightDir.value = (0 if rForwards == 1 else 1)
+
+
 delay = [1]
 p = Thread(target = step, args=[delay])
 p.daemon = True
@@ -33,5 +45,5 @@ while True:
     dy = data['y']
     print('\033c',dy)
     mx = max(mx, abs(dy))
-
-    delay[0] = .001
+    changeDir(dy)
+    delay[0] = .0001
