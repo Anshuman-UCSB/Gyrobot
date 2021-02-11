@@ -53,3 +53,4 @@ while True:
     mx = max(mx, abs(dy))
     changeDir(dy)
     delay[0] = .0001
+    sleep(4)
