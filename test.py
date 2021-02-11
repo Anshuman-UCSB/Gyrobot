@@ -37,6 +37,9 @@ def changeDir(input, leftDirPin = 17,rightDirPin = 15, lForwards = 0, rForwards=
         rightDir.value = (0 if rForwards == 1 else 1)
 
 
+def avg(lst): 
+    return sum(lst) / len(lst) 
+
 delay = [1]
 p = Thread(target = step, args=[delay])
 p.daemon = True
@@ -45,14 +48,18 @@ p.start()
 # sleep(2)
 # print("changing speed")
 
-mx = 0
+rollingFilter = []
+
 while True:
     data= sensor.get_gyro_data()
     dy = data['y']
-    print('\033c',dy)
-    mx = max(mx, abs(dy))
-    changeDir(dy)
-    if abs(dy)<0.1:
-        dy = .1
-    delay[0] = .01/abs(dy)
+    rollingFilter.append(dy)
+    if(len(rollingFilter)>=100):
+        rollingFilter.pop(0)
+    dyAvg = avg(rollingFilter)
+    print('\033c',dyAvg)
+    changeDir(dyAvg)
+    if abs(dyAvg)<0.1:
+        dyAvg = .1
+    delay[0] = .01/abs(dyAvg)
     # sleep(1)
