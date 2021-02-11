@@ -52,5 +52,5 @@ while True:
     print('\033c',dy)
     mx = max(mx, abs(dy))
     changeDir(dy)
-    delay[0] = .01
+    delay[0] = .01 
     sleep(1)
