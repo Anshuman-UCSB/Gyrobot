@@ -61,7 +61,11 @@ while True:
     changeDir(dyAvg)
     if abs(dyAvg)>1:
         delay[0] = .01/abs(dyAvg)
-        sleep(.02)
+        while delay[0] >=.001:
+            delay -=.01
+            delay/=1.1
+            sleep(.1)
+
     else:
         delay[0] = 999
     # sleep(1)
