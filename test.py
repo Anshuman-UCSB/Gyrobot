@@ -25,7 +25,7 @@ def step(delay, leftPin=27, rightPin = 14, leftDirPin = 17):
         left.toggle()
         right.toggle()
 
-def changeDir(input, leftDirPin = 17,rightDirPin = 15, lForwards = 1, rForwards=0):
+def changeDir(input, leftDirPin = 17,rightDirPin = 15, lForwards = 0, rForwards=0):
     "if input is >0, forwards else backwards"
     leftDir = pins[leftDirPin]
     rightDir = pins[rightDirPin]
